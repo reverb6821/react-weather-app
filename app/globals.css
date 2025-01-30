@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .bg-color-primary {
+        @apply bg-slate-100 dark:bg-slate-600
+    }
+
+    .bg-color-secondary {
+        @apply bg-slate-200 dark:bg-gray-700
+    }
+
+    .text-color-primary {
+        @apply text-gray-700 dark:text-slate-100
+    }
+
+    .text-color-secondary {
+        @apply text-slate-500 dark:text-slate-300
+    }
+}
+
+@layer utilities {
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+@layer utilities {
+    .wrapper {
+        @apply w-[90%] md:w-[720px] lg:w-[960px] xl:w-[1000px] 2xl:w-[1400px] mx-auto flex flex-col justify-center;
+    }
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  * {
+    margin: 0;
+  }
+  
+  
+  body {
+    padding: 0;
+    margin: 0;
+    @apply bg-color-primary text-color-primary
+  }
+
+.loader {
+    width: 160px;
+    height: 80px;
+    background: radial-gradient(circle 50px at top right, #ffd738 40%, #0000),
+        #4dbefa;
+    position: relative;
+    overflow: hidden;
+}
+
+.loader:before,
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: -80px;
+    width: 72px;
+    height: 40px;
+    --c: radial-gradient(farthest-side, #fff 96%, #0000);
+    background: var(--c) 100% 100% /30% 60%, var(--c) 70% 0 /50% 100%,
+        var(--c) 0 100% /36% 68%, var(--c) 27% 18% /26% 40%,
+        linear-gradient(#fff 0 0) bottom/67% 58%;
+    background-repeat: no-repeat;
+    animation: l10 2s linear infinite;
+}
+
+.loader:after {
+    top: 30px;
+    --l: 200%;
+}
+
+@keyframes l10 {
+    100% {
+        left: var(--l, 105%);
+    }
+}
